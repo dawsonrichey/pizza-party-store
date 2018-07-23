@@ -1,5 +1,15 @@
 ﻿@{
-    Layout = null;
+	Layout = null;
+
+	var pizzaName = "Porky-the-pie";
+	var pizzaCost = 11.99;
+	var description = "<p>sdfdsfsdsdfsd</p>";
+	var toppings = new string[]
+	{
+		"Meat: Bacon",
+		"Meat: Sausage",
+		"Vegetable: Mushroom"
+	};
 }
 
 <!DOCTYPE html>
@@ -11,7 +21,14 @@
 </head>
 <body>
     <div>
-		<h1>Hello World. This message is from our Detail view.</h1>
+		<h1>@pizzaName</h1>
+		<h2>Cost $ @pizzaCost</h2>
+
+		<h5>Description:</h5>
+		<div>@Html.Raw(description)</div>
+
+		<h5>Toppings:</h5>
+		<div>@toppings</div>
     </div>
 </body>
 </html>
