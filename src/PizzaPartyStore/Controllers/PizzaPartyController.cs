@@ -8,5 +8,9 @@ namespace PizzaPartyStore.Controllers
 {
 	public class PizzaPartyController : Controller
 	{
+		public string Detail()
+		{
+			return "Hello world!";
+		}
 	}
 }
