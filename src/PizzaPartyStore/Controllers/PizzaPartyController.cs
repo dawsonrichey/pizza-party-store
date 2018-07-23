@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PizzaPartyStore.Models;
 
 namespace PizzaPartyStore.Controllers
 {
@@ -10,17 +11,20 @@ namespace PizzaPartyStore.Controllers
 	{
 		public ActionResult Detail()
 		{
-			ViewBag.PizzaName = "Porky-the-pie";
-			ViewBag.PizzaCost = 11.99;
-			ViewBag.Description = "<p>sdfdsfsdsdfsd</p>";
-			ViewBag.Toppings = new string[]
+			var pizzaParty = new PizzaParty()
 			{
-				"Meat: Bacon",
-				"Meat: Sausage",
-				"Vegetable: Mushroom"
+				PizzaName = "Porky-the-pie",
+				PizzaCost = 11,
+				DescriptionHtml = "<p>sdfdsfsdsdfsd </p>",
+				Toppings = new Topping[]
+				{
+					new Topping() {Name = "Bacon", Role = "Meat" },
+					new Topping() {Name = "Sausage", Role = "Meat" },
+					new Topping() {Name = "Mushroom", Role = "Vegetable" },
+				}
 			};
-
-			return View();
+			 
+			return View(pizzaParty);
 		}
 	}
 }

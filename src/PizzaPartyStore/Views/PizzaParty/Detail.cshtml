@@ -1,22 +1,24 @@
-﻿@{
+﻿@model PizzaPartyStore.Models.PizzaParty
+
+@{
 	Layout = "~/Views/Shared/_Layout.cshtml";
-	ViewBag.Title = "Pizza Party Detail";
+	ViewBag.Title = Model.DisplayText;
 }
 
-<h1>@ViewBag.PizzaName</h1>
-<h2>Cost $ @ViewBag.PizzaCost</h2>
+<h1>@Model.PizzaName</h1>
+<h2>Cost $ @Model.PizzaCost</h2>
 
 <h5>Description:</h5>
-<div>@Html.Raw(ViewBag.Description)</div>
+<div>@Html.Raw(Model.DescriptionHtml)</div>
 
-@if (ViewBag.Toppings.Length > 0)
+@if (Model.Toppings.Length > 0)
 {
 	<h5>Toppings:</h5>
 	<div>
 		<ul>
-			@foreach (var topping in ViewBag.Toppings)
+			@foreach (var topping in Model.Toppings)
 			{
-			<li>@topping</li>
+			<li>@topping.Role: @topping.Name</li>
 			}
 		</ul>
 	</div>
