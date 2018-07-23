@@ -20,15 +20,26 @@
     <title></title>
 </head>
 <body>
-    <div>
+	<div>
 		<h1>@pizzaName</h1>
 		<h2>Cost $ @pizzaCost</h2>
 
 		<h5>Description:</h5>
 		<div>@Html.Raw(description)</div>
 
-		<h5>Toppings:</h5>
-		<div>@toppings</div>
-    </div>
+		@if (toppings.Length > 0)
+		{
+			<h5>Toppings:</h5>
+			<div>
+				<ul>
+					@foreach (var topping in toppings)
+					{
+					<li>@topping</li>
+					}
+				</ul>
+			</div>
+		}
+
+	</div>
 </body>
 </html>
