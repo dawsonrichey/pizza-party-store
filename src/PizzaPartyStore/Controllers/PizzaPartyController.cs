@@ -10,6 +10,16 @@ namespace PizzaPartyStore.Controllers
 	{
 		public ActionResult Detail()
 		{
+			ViewBag.PizzaName = "Porky-the-pie";
+			ViewBag.PizzaCost = 11.99;
+			ViewBag.Description = "<p>sdfdsfsdsdfsd</p>";
+			ViewBag.Toppings = new string[]
+			{
+				"Meat: Bacon",
+				"Meat: Sausage",
+				"Vegetable: Mushroom"
+			};
+
 			return View();
 		}
 	}

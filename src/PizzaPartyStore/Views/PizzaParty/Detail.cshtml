@@ -1,15 +1,5 @@
 ﻿@{
 	Layout = null;
-
-	var pizzaName = "Porky-the-pie";
-	var pizzaCost = 11.99;
-	var description = "<p>sdfdsfsdsdfsd</p>";
-	var toppings = new string[]
-	{
-		"Meat: Bacon",
-		"Meat: Sausage",
-		"Vegetable: Mushroom"
-	};
 }
 
 <!DOCTYPE html>
@@ -21,18 +11,18 @@
 </head>
 <body>
 	<div>
-		<h1>@pizzaName</h1>
-		<h2>Cost $ @pizzaCost</h2>
+		<h1>@ViewBag.PizzaName</h1>
+		<h2>Cost $ @ViewBag.PizzaCost</h2>
 
 		<h5>Description:</h5>
-		<div>@Html.Raw(description)</div>
+		<div>@Html.Raw(ViewBag.Description)</div>
 
-		@if (toppings.Length > 0)
+		@if (ViewBag.Toppings.Length > 0)
 		{
 			<h5>Toppings:</h5>
 			<div>
 				<ul>
-					@foreach (var topping in toppings)
+					@foreach (var topping in ViewBag.Toppings)
 					{
 					<li>@topping</li>
 					}
