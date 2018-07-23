@@ -13,5 +13,22 @@ namespace PizzaPartyStore.Models
 		public string DescriptionHtml { get; set; }
 		public Topping[] Toppings { get; set; }
 		public bool Favorite { get; set; }
+
+		public string DisplayText
+		{
+			get
+			{
+				return PizzaName + " $" + PizzaCost;
+			}
+		}
+		// series-title-issuenumber.jpg
+		public string CoverImageFileName
+		{
+			get
+			{
+				return PizzaName.Replace(" ", "-")
+					.ToLower() + "-" + PizzaCost + ".jpg";
+			}
+		}
 	}
 }
