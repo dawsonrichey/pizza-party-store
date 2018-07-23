@@ -10,7 +10,7 @@ namespace PizzaPartyStore.Controllers
 	{
 		public ActionResult Detail()
 		{
-			return Content("Hello world!");
+			return View();
 		}
 	}
 }
