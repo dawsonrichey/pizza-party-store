@@ -10,10 +10,13 @@
 	@foreach (var pizzaParty in Model)
 	{
 		<div class="col-md-3">
-			<h4>@pizzaParty.DisplayText</h4>
-			<img src="/Images/@pizzaParty.CoverImageFileName"
-				 alt="@pizzaParty.DisplayText'"
-				 class="img-responsive" />
+			<h4>@Html.ActionLink(pizzaParty.DisplayText, "Detail",
+				new { id = pizzaParty.Id })</h4>
+			<a href="@Url.Action("Detail", new { id = pizzaParty.Id })">
+				<img src="/Images/@pizzaParty.CoverImageFileName"
+						alt="@pizzaParty.DisplayText'"
+						class="img-responsive" />
+			</a>
 		</div>
 	}
 
