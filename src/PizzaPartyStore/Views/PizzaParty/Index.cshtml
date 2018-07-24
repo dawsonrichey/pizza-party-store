@@ -1,7 +1,20 @@
-﻿
+﻿@model PizzaPartyStore.Models.PizzaParty[]
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pizza Party Store";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
+<div class="row">
+	@foreach (var pizzaParty in Model)
+	{
+		<div class="col-md-3">
+			<h4>@pizzaParty.DisplayText</h4>
+			<img src="/Images/@pizzaParty.CoverImageFileName"
+				 alt="@pizzaParty.DisplayText'"
+				 class="img-responsive" />
+		</div>
+	}
+
+</div>
