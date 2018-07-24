@@ -42,3 +42,9 @@ textarea {
 .series-list li:last-child{
   border: none;
 }
+
+
+.navbar-inverse {
+	background-color: #3a87ad;
+	border-color: #029acf;
+}
