@@ -17,6 +17,13 @@ namespace PizzaPartyStore.Controllers
 			_pizzaPartyRepository = new PizzaPartyRepository();
 		}
 
+		public ActionResult Index()
+		{
+			var pizzaParties = _pizzaPartyRepository.GetPizzaParties();
+
+			return View(pizzaParties);
+		}
+
 		public ActionResult Detail(int? id)
 		{
 			if (id == null)

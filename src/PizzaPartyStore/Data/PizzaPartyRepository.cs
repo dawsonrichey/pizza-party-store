@@ -52,9 +52,12 @@ namespace PizzaPartyStore.Data
 				},
 				Favorite = false
 			}
+		};
 
-
-			};
+		public PizzaParty[] GetPizzaParties()
+		{
+			return _pizzaParties;
+		}
 
 		public PizzaParty GetPizzaParty(int id)
 		{
