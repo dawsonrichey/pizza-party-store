@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PizzaPartyStore.Data;
 using PizzaPartyStore.Models;
 
 namespace PizzaPartyStore.Controllers
 {
 	public class PizzaPartyController : Controller
 	{
-		public ActionResult Detail()
+		private PizzaPartyRepository _pizzaPartyRepository = null;
+
+		public PizzaPartyController()
 		{
-			var pizzaParty = new PizzaParty()
+			_pizzaPartyRepository = new PizzaPartyRepository();
+		}
+
+		public ActionResult Detail(int? id)
+		{
+			if (id == null)
 			{
-				PizzaName = "Porky-the-pie",
-				PizzaCost = 11,
-				DescriptionHtml = "<p>sdfdsfsdsdfsd </p>",
-				Toppings = new Topping[]
-				{
-					new Topping() {Name = "Bacon", Role = "Meat" },
-					new Topping() {Name = "Sausage", Role = "Meat" },
-					new Topping() {Name = "Mushroom", Role = "Vegetable" },
-				}
-			};
+				return HttpNotFound();
+			}
+
+			var pizzaParty = _pizzaPartyRepository.GetPizzaParty((int)id);
 			 
 			return View(pizzaParty);
 		}

@@ -12,6 +12,7 @@ namespace PizzaPartyStore.Data
 			{
 				new PizzaParty()
 			{
+				Id = 1,
 				PizzaName = "Porky-the-pie",
 				PizzaCost = 11,
 				DescriptionHtml = "<p>Traditional Crust, Red Sauce, Cheese, Pepperoni, Bacon, Ham and Sausage.</p>",
@@ -25,6 +26,7 @@ namespace PizzaPartyStore.Data
 			},
 				new PizzaParty()
 			{
+				Id = 2,
 				PizzaName = "Italian Stallion",
 				PizzaCost = 14,
 				DescriptionHtml = "<p>Traditional Crust, Red Sauce, Cheese, Italian Sausage, Pepperoni, Mushroom and Wisconsin Cheddar.</p>",
@@ -38,6 +40,7 @@ namespace PizzaPartyStore.Data
 			},
 								new PizzaParty()
 			{
+				Id = 3,
 				PizzaName = "Wakin' Bacon",
 				PizzaCost = 12,
 				DescriptionHtml = "<p>Traditional Crust, Sausage Gravy, Bacon, Mozzarella and Cheddar Cheese. The taste of buiscuts and gravy!",
