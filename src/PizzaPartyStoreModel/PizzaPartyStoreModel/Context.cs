@@ -10,6 +10,7 @@ namespace PizzaPartyStoreModel
 {
 	public class Context : DbContext
 	{
+
 		public DbSet<PizzaParty> PizzaParties { get; set; }
 
 	}
