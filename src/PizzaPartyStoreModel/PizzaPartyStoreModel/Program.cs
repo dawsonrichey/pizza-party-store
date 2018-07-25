@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PizzaPartyStoreModel.Models;
+using System.Data.Entity;
 
 namespace PizzaPartyStoreModel
 {
@@ -13,18 +14,32 @@ namespace PizzaPartyStoreModel
 		{
 			using (var context = new Context())
 			{
+				var pizza = new Pizza()
+				{
+					Name = "Wakin' Bacon"
+				};
 				context.PizzaParties.Add(new PizzaParty()
 				{
-					PizzaName = "fart",
-					PizzaCost = 1,
+					Pizza = pizza,
+					PizzaCost = 12,
 					PublishedOn = DateTime.Today
 				});
+				context.PizzaParties.Add(new PizzaParty()
+				{
+					Pizza = pizza,
+					PizzaCost = 14,
+					PublishedOn = DateTime.Today
+				});
+
 				context.SaveChanges();
 
-				var pizzaParties = context.PizzaParties.ToList();
+				var pizzaParties = context.PizzaParties
+					.Include(pp => pp.Pizza)
+					.ToList();
+
 				foreach (var pizzaParty in pizzaParties)
 				{
-					Console.WriteLine(pizzaParty.PizzaName);
+					Console.WriteLine(pizzaParty.DisplayText);
 				}
 
 				Console.ReadLine();

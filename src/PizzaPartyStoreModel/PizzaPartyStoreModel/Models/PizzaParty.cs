@@ -10,11 +10,18 @@ namespace PizzaPartyStoreModel.Models
 	{
 		//ID, PizzaPartsId, PizzaPartyID
 		public int Id { get; set; }
-		public string PizzaName { get; set; }
+		public Pizza Pizza { get; set; }
 		public int PizzaCost { get; set; }
 		public string Description { get; set; }
 		public DateTime PublishedOn { get; set; }
 		public decimal? AverageRating { get; set; }
 
+		public string DisplayText
+		{
+			get
+			{
+				return $"{Pizza?.Name} ${PizzaCost}";
+			}
+		}
 	}
 }
