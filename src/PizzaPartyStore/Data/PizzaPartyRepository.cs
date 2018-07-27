@@ -13,7 +13,7 @@ namespace PizzaPartyStore.Data
 				new PizzaParty()
 			{
 				Id = 1,
-				PizzaName = "Porky The Pie",
+				PizzaName = "Porky The Fart Pie",
 				PizzaCost = 11,
 				DescriptionHtml = "<p>Traditional Crust, Red Sauce, Cheese, Pepperoni, Bacon, Ham and Sausage.</p>",
 				Toppings = new Topping[]
