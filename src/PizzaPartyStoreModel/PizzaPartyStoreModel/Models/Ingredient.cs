@@ -17,6 +17,7 @@ namespace PizzaPartyStoreModel.Models
 		[Required, StringLength(100)]
 		public string Name { get; set; }
 
+
 		public ICollection<PizzaPartyIngredient> PizzaParties { get; set; }
 
 	}
