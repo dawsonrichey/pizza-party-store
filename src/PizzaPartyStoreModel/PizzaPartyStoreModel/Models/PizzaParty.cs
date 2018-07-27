@@ -11,7 +11,7 @@ namespace PizzaPartyStoreModel.Models
 	{
 		public PizzaParty()
 		{
-			Ingredients = new List<Ingredient>();
+			Ingredients = new List<PizzaPartyIngredient>();
 		}
 
 		//ID, PizzaPartsId, PizzaPartyID
@@ -23,7 +23,7 @@ namespace PizzaPartyStoreModel.Models
 		public decimal? AverageRating { get; set; }
 
 		public Pizza Pizza { get; set; }
-		public ICollection<Ingredient> Ingredients { get; set; }
+		public ICollection<PizzaPartyIngredient> Ingredients { get; set; }
 
 		public string DisplayText
 		{
@@ -31,6 +31,15 @@ namespace PizzaPartyStoreModel.Models
 			{
 				return $"{Pizza?.Name} ${PizzaCost}";
 			}
+		}
+
+		public void AddIngredient(Ingredient ingredient, Role role)
+		{
+			Ingredients.Add(new PizzaPartyIngredient()
+			{
+				Ingredient = ingredient,
+				Role = role
+			});
 		}
 	}
 }

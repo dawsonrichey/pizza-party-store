@@ -38,14 +38,23 @@ namespace PizzaPartyStoreModel
 					Name = "Sausage Gravy"
 				};
 
+				var role1 = new Role()
+				{
+					Name = "Meat"
+				};
+				var role2 = new Role()
+				{
+					Name = "Other"
+				};
+
 				var pizzaParty1 = new PizzaParty()
 				{
 					Pizza = pizza1,
 					PizzaCost = 12,
 					PublishedOn = DateTime.Today
 				};
-				pizzaParty1.Ingredients.Add(ingredient1);
-				pizzaParty1.Ingredients.Add(ingredient2);
+				pizzaParty1.AddIngredient(ingredient1, role1);
+				pizzaParty1.AddIngredient(ingredient2, role2);
 
 				var pizzaParty2 = new PizzaParty()
 				{
@@ -53,8 +62,8 @@ namespace PizzaPartyStoreModel
 					PizzaCost = 14,
 					PublishedOn = DateTime.Today
 				};
-				pizzaParty2.Ingredients.Add(ingredient2);
-				pizzaParty2.Ingredients.Add(ingredient3);
+				pizzaParty2.AddIngredient(ingredient2, role1);
+				pizzaParty2.AddIngredient(ingredient3, role2);
 
 				var pizzaParty3 = new PizzaParty()
 				{
@@ -62,8 +71,8 @@ namespace PizzaPartyStoreModel
 					PizzaCost = 124,
 					PublishedOn = DateTime.Today
 				};
-				pizzaParty3.Ingredients.Add(ingredient1);
-				pizzaParty3.Ingredients.Add(ingredient3);
+				pizzaParty3.AddIngredient(ingredient1, role1);
+				pizzaParty3.AddIngredient(ingredient3, role2);
 
 				context.PizzaParties.Add(pizzaParty1);
 				context.PizzaParties.Add(pizzaParty2);
@@ -73,16 +82,18 @@ namespace PizzaPartyStoreModel
 
 				var pizzaParties = context.PizzaParties
 					.Include(pp => pp.Pizza)
-					.Include(pp => pp.Ingredients)
+					.Include(pp => pp.Ingredients.Select(a => a.Ingredient))
+					.Include(pp => pp.Ingredients.Select(a => a.Role))
 					.ToList();
 
 				foreach (var pizzaParty in pizzaParties)
 				{
-					var ingredientNames = pizzaParty.Ingredients.Select(a => a.Name).ToList();
-					var ingredientsDisplayText = string.Join(", ", ingredientNames);
+					var ingredientRoleNames = pizzaParty.Ingredients
+						.Select(a => $"{a.Ingredient.Name} - {a.Role.Name}").ToList();
+					var ingredientsRolesDisplayText = string.Join(", ", ingredientRoleNames);
 
 					Console.WriteLine(pizzaParty.DisplayText);
-					Console.WriteLine(ingredientsDisplayText);
+					Console.WriteLine(ingredientsRolesDisplayText);
 				}
 
 				Console.ReadLine();

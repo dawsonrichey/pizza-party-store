@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace PizzaPartyStoreModel.Models
 {
-	public class Ingredient
+	public class Role
 	{
-		public Ingredient()
-		{
-			PizzaParties = new List<PizzaPartyIngredient>();
-		}
 		public int Id { get; set; }
 		public string Name { get; set; }
-
-		public ICollection<PizzaPartyIngredient> PizzaParties { get; set; }
-
 	}
 }
